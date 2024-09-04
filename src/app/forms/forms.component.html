@@ -1,12 +1,20 @@
-
-
 <form [formGroup]="form">
-<div>
-    <input type="text" formArrayName="firstName">
-</div>
-<div>
-    <input type="text" formArrayName="lastName">
-</div>
-
-<button (click)="save()">Save</button>
-</form>
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" type="text" formControlName="firstName">
+      <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+        <small *ngIf="form.get('firstName')?.errors?.['required']">First Name is required.</small>
+      </div>
+    </div>
+    
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" type="text" formControlName="lastName">
+      <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+        <small *ngIf="form.get('lastName')?.errors?.['required']">Last Name is required.</small>
+      </div>
+    </div>
+  
+    <button [disabled]="form.invalid" (click)="save()">Save</button>
+  </form>
+  
