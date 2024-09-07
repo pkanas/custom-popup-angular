@@ -1,5 +1,29 @@
 <router-outlet></router-outlet>
 
-<!-- <button (click)="openPopup()">Open Popup</button> -->
+<button (click)="openPopup()">Open Popup</button>
 
-<app-forms></app-forms>
+
+<div>
+  <app-custom-pop-up 
+[isVisible]="isPopupVisible" 
+[title]="'Enter Your Details'" 
+[size]="'medium'"
+(close)="closePopup()">
+
+<form (ngSubmit)="onSubmit()" #popupForm="ngForm">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required>
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" [(ngModel)]="age" name="age" required>
+  </div>
+  <div class="button-group">
+    <button type="submit" [disabled]="!popupForm.form.valid">Submit</button>
+    <button type="button" (click)="closePopup()">Cancel</button>
+  </div>
+</form>
+
+</app-custom-pop-up>
+</div>

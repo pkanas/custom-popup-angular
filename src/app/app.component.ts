@@ -4,12 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CustomPopUpComponent } from './custom-pop-up/custom-pop-up.component';
 import { CommonModule } from '@angular/common';
-import { FormsComponent } from './forms/forms.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CustomPopUpComponent,FormsModule,CommonModule,FormsComponent],
+  imports: [RouterOutlet, CustomPopUpComponent,FormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
